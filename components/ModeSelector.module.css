@@ -1,0 +1,229 @@
+/* ============================================================ */
+/* 🎮 ModeSelector.module.css - 게임 모드 선택 화면 스타일      */
+/* ============================================================ */
+
+/* 전체 컨테이너: 화면 중앙에 정렬 */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  max-width: 520px;
+  margin: 0 auto;
+  animation: fadeIn 0.6s ease;
+}
+
+/* 게임 제목: 네온 글로우 효과 */
+.title {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  text-align: center;
+  background: linear-gradient(135deg, var(--color-o), var(--color-x));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  filter: drop-shadow(0 0 20px var(--color-o-glow)) drop-shadow(0 0 40px var(--color-x-glow));
+  animation: float 3s ease-in-out infinite;
+}
+
+/* 부제목 */
+.subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-dim);
+  text-align: center;
+  margin-top: calc(-1 * var(--spacing-md));
+}
+
+/* 각 설정 섹션(모드, 보드크기, 난이도 등) */
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* 섹션 라벨 */
+.sectionLabel {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: center;
+}
+
+/* 모드 선택 카드 컨테이너 */
+.modeCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+/* 개별 모드 카드 */
+.modeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg) var(--spacing-md);
+  background: var(--glass-bg);
+  border: 2px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+.modeCard:hover {
+  background: var(--color-surface-hover);
+  transform: translateY(-3px);
+}
+
+/* 선택된 모드 카드: 네온 보더 */
+.modeCardActive {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 15px rgba(123, 104, 238, 0.3), inset 0 0 15px rgba(123, 104, 238, 0.1);
+  background: rgba(123, 104, 238, 0.1);
+}
+
+/* 모드 아이콘 (이모지) */
+.modeIcon {
+  font-size: var(--font-size-2xl);
+}
+
+/* 모드 이름 */
+.modeName {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+}
+
+/* 모드 설명 */
+.modeDesc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-dim);
+  text-align: center;
+}
+
+/* 토글 버튼 그룹 (보드크기, 선공 선택 등) */
+.toggleGroup {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xs);
+}
+
+/* 토글 버튼 */
+.toggleBtn {
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  color: var(--color-text-dim);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  font-family: inherit;
+}
+
+.toggleBtn:hover {
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.toggleBtnActive {
+  background: var(--color-accent) !important;
+  color: white !important;
+  box-shadow: 0 0 15px rgba(123, 104, 238, 0.4);
+}
+
+/* 난이도 버튼 그룹 */
+.difficultyGroup {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: center;
+}
+
+/* 난이도 개별 버튼 */
+.difficultyBtn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: 2px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  font-family: inherit;
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+.difficultyBtn:hover {
+  transform: translateY(-2px);
+}
+
+/* 난이도별 활성 색상 */
+.difficultyEasy {
+  border-color: #00FF88;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.3);
+  background: rgba(0, 255, 136, 0.15);
+  color: #00FF88;
+}
+
+.difficultyMedium {
+  border-color: #FFD700;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+  background: rgba(255, 215, 0, 0.15);
+  color: #FFD700;
+}
+
+.difficultyHard {
+  border-color: #FF4466;
+  box-shadow: 0 0 12px rgba(255, 68, 102, 0.3);
+  background: rgba(255, 68, 102, 0.15);
+  color: #FF4466;
+}
+
+/* 게임 시작 버튼 */
+.startBtn {
+  width: 100%;
+  padding: var(--spacing-lg);
+  border: none;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-accent), #9B6BFF);
+  color: white;
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  font-family: inherit;
+  box-shadow: 0 4px 20px rgba(123, 104, 238, 0.4);
+}
+
+.startBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(123, 104, 238, 0.6);
+}
+
+.startBtn:active {
+  transform: translateY(-1px);
+}
+
+/* 반응형: 모바일 */
+@media (max-width: 480px) {
+  .container {
+    padding: var(--spacing-lg);
+  }
+  .title {
+    font-size: var(--font-size-2xl);
+  }
+  .modeCards {
+    grid-template-columns: 1fr;
+  }
+}

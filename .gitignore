@@ -1,0 +1,36 @@
+# 의존성 폴더 (npm install로 재생성 가능)
+node_modules/
+
+# Next.js 빌드 결과물
+.next/
+out/
+
+# 프로덕션 빌드
+build/
+
+# 환경 변수 (비밀 정보)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 디버그 로그
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS 시스템 파일
+.DS_Store
+Thumbs.db
+
+# IDE 설정
+.vscode/
+.idea/
+
+# Vercel 설정 (자동 생성)
+.vercel/
+
+# TypeScript 빌드 정보
+*.tsbuildinfo
+next-env.d.ts

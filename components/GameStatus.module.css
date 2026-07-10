@@ -1,0 +1,67 @@
+/* ============================================================ */
+/* 📊 GameStatus.module.css - 게임 상태 표시 스타일             */
+/* ============================================================ */
+
+.container {
+  text-align: center;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+/* 상태 텍스트 기본 스타일 */
+.status {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  font-family: var(--font-outfit), sans-serif;
+}
+
+/* O의 차례 */
+.turnO {
+  color: var(--color-o);
+  text-shadow: 0 0 15px var(--color-o-glow), 0 0 30px var(--color-o-glow);
+}
+
+/* X의 차례 */
+.turnX {
+  color: var(--color-x);
+  text-shadow: 0 0 15px var(--color-x-glow), 0 0 30px var(--color-x-glow);
+}
+
+/* 승리 메시지 */
+.winner {
+  font-size: var(--font-size-2xl);
+  animation: celebrate 0.6s ease;
+}
+
+.winnerO {
+  color: var(--color-o);
+  text-shadow: 0 0 20px var(--color-o-glow), 0 0 40px var(--color-o-glow);
+}
+
+.winnerX {
+  color: var(--color-x);
+  text-shadow: 0 0 20px var(--color-x-glow), 0 0 40px var(--color-x-glow);
+}
+
+/* 무승부 메시지 */
+.draw {
+  font-size: var(--font-size-2xl);
+  color: var(--color-draw);
+  text-shadow: 0 0 15px var(--color-draw-glow), 0 0 30px var(--color-draw-glow);
+  animation: celebrate 0.6s ease;
+}
+
+/* AI 생각 중 스피너 */
+.thinking {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.spinner {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}

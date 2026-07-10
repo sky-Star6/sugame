@@ -1,0 +1,138 @@
+/* ============================================================ */
+/* 📄 page.module.css - 메인 페이지 스타일                      */
+/* ============================================================ */
+
+/* 전체 페이지 레이아웃 */
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  gap: var(--spacing-lg);
+}
+
+/* 게임 영역 컨테이너 */
+.gameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  width: 100%;
+  max-width: 700px;
+  animation: fadeIn 0.5s ease;
+}
+
+/* 게임 헤더 (제목 + 음소거 버튼) */
+.gameHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* 게임 중 제목 */
+.gameTitle {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--color-o), var(--color-x));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 음소거 토글 버튼 */
+.muteBtn {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: var(--font-size-lg);
+  padding: var(--spacing-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(var(--glass-blur));
+  line-height: 1;
+}
+
+.muteBtn:hover {
+  background: var(--color-surface-hover);
+  transform: scale(1.1);
+}
+
+/* 하단 버튼 그룹 */
+.buttonGroup {
+  display: flex;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+/* 공통 버튼 스타일 */
+.btn {
+  flex: 1;
+  padding: var(--spacing-md);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  font-family: inherit;
+}
+
+/* 재시작 버튼 */
+.restartBtn {
+  background: linear-gradient(135deg, var(--color-accent), #9B6BFF);
+  color: white;
+  box-shadow: 0 4px 15px rgba(123, 104, 238, 0.3);
+}
+
+.restartBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(123, 104, 238, 0.5);
+}
+
+/* 설정 변경 버튼 */
+.settingsBtn {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--color-text);
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+.settingsBtn:hover {
+  background: var(--color-surface-hover);
+  transform: translateY(-2px);
+}
+
+/* 모드 정보 태그 */
+.modeInfo {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tag {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: rgba(123, 104, 238, 0.15);
+  border: 1px solid rgba(123, 104, 238, 0.3);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-accent-hover);
+}
+
+/* 반응형 */
+@media (max-width: 480px) {
+  .main {
+    padding: var(--spacing-md);
+  }
+  .gameTitle {
+    font-size: var(--font-size-lg);
+  }
+  .buttonGroup {
+    flex-direction: column;
+  }
+}

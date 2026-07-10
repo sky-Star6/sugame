@@ -1,0 +1,176 @@
+/* ============================================================ */
+/* 🎨 globals.css - O/X 틱택토 게임 디자인 시스템               */
+/* ============================================================ */
+/* 다크 모드 기반의 네온 글로우(Neon Glow) 테마입니다.            */
+/* 모든 색상, 간격, 애니메이션을 CSS 변수로 관리합니다.           */
+
+/* ============================================================ */
+/* 📐 CSS 변수(Custom Properties) 시스템                         */
+/* ============================================================ */
+:root {
+  /* ------------------------------------------------------ */
+  /* 🎨 색상 팔레트 - 네온 다크 테마                          */
+  /* ------------------------------------------------------ */
+  --color-bg-start: #0a0a1a;          /* 배경 그라데이션 시작 (진한 네이비) */
+  --color-bg-end: #1a1a3e;            /* 배경 그라데이션 끝 (어두운 보라) */
+  --color-surface: rgba(255, 255, 255, 0.05); /* 카드/패널 배경 (반투명) */
+  --color-surface-hover: rgba(255, 255, 255, 0.1); /* 호버 시 카드 배경 */
+  --color-border: rgba(255, 255, 255, 0.1);  /* 테두리 색상 */
+
+  /* 네온 색상: O(시안)와 X(마젠타) */
+  --color-o: #00D4FF;                 /* O 마크 색상: 시안(Cyan) 네온 */
+  --color-o-glow: rgba(0, 212, 255, 0.4);   /* O 네온 글로우 효과 */
+  --color-x: #FF00E5;                 /* X 마크 색상: 마젠타(Magenta) 네온 */
+  --color-x-glow: rgba(255, 0, 229, 0.4);   /* X 네온 글로우 효과 */
+
+  /* 상태 색상 */
+  --color-win: #00FF88;               /* 승리 색상: 네온 그린 */
+  --color-win-glow: rgba(0, 255, 136, 0.4); /* 승리 글로우 */
+  --color-draw: #FFD700;              /* 무승부 색상: 골드 */
+  --color-draw-glow: rgba(255, 215, 0, 0.3); /* 무승부 글로우 */
+
+  /* 텍스트 색상 */
+  --color-text: #E8E8F0;              /* 기본 텍스트 (밝은 라벤더) */
+  --color-text-dim: #8888AA;          /* 보조 텍스트 (흐린 보라) */
+
+  /* 버튼/인터랙션 색상 */
+  --color-accent: #7B68EE;            /* 액센트 보라 */
+  --color-accent-hover: #9B8BFF;      /* 액센트 호버 */
+
+  /* ------------------------------------------------------ */
+  /* 📏 폰트 크기                                            */
+  /* ------------------------------------------------------ */
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-md: 1rem;      /* 16px */
+  --font-size-lg: 1.25rem;   /* 20px */
+  --font-size-xl: 1.75rem;   /* 28px */
+  --font-size-2xl: 2.5rem;   /* 40px */
+  --font-size-3xl: 3.5rem;   /* 56px */
+
+  /* ------------------------------------------------------ */
+  /* 📐 간격(Spacing) 시스템                                  */
+  /* ------------------------------------------------------ */
+  --spacing-xs: 0.25rem;  /* 4px */
+  --spacing-sm: 0.5rem;   /* 8px */
+  --spacing-md: 1rem;     /* 16px */
+  --spacing-lg: 1.5rem;   /* 24px */
+  --spacing-xl: 2rem;     /* 32px */
+  --spacing-2xl: 3rem;    /* 48px */
+
+  /* ------------------------------------------------------ */
+  /* 🔘 둥근 모서리(Border Radius)                            */
+  /* ------------------------------------------------------ */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* ------------------------------------------------------ */
+  /* 🌟 글래스모피즘(Glassmorphism) 효과                      */
+  /* ------------------------------------------------------ */
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: 12px;
+
+  /* ------------------------------------------------------ */
+  /* ⏱️ 트랜지션 속도                                        */
+  /* ------------------------------------------------------ */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* ============================================================ */
+/* 🔄 CSS 리셋 & 기본 스타일                                     */
+/* ============================================================ */
+
+/* 모든 요소의 박스 모델을 border-box로 설정 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* HTML & Body: 전체 화면 배경 설정 */
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  /* 배경: 진한 네이비에서 어두운 보라로 이어지는 그라데이션 */
+  background: linear-gradient(135deg, var(--color-bg-start), var(--color-bg-end));
+  /* 최소 높이를 화면 전체로 설정 */
+  min-height: 100vh;
+  /* 기본 텍스트 색상 */
+  color: var(--color-text);
+  /* 폰트 렌더링 최적화 (텍스트를 더 선명하게) */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================ */
+/* 🎬 키프레임 애니메이션 (Keyframes)                             */
+/* ============================================================ */
+
+/* ✨ 페이드인: 투명 → 불투명 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 🔍 스케일인: 작은 크기 → 원래 크기 */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.5); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* 💫 네온 펄스: 글로우 효과가 반복적으로 밝아졌다 어두워짐 */
+@keyframes neonPulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.7; }
+}
+
+/* 🎉 승리 축하: 약간 커졌다 줄어드는 바운스 효과 */
+@keyframes celebrate {
+  0%   { transform: scale(1); }
+  25%  { transform: scale(1.1); }
+  50%  { transform: scale(0.95); }
+  75%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* ⭐ 승리 라인 반짝임 */
+@keyframes winGlow {
+  0%, 100% { box-shadow: 0 0 10px var(--color-win-glow), inset 0 0 10px var(--color-win-glow); }
+  50%      { box-shadow: 0 0 25px var(--color-win-glow), inset 0 0 25px var(--color-win-glow); }
+}
+
+/* 🔄 부드러운 회전 (로딩용) */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* 🫧 떠오르는 효과 */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+
+/* ============================================================ */
+/* 🛠️ 유틸리티 클래스                                            */
+/* ============================================================ */
+
+/* 글래스모피즘 카드 스타일 */
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}

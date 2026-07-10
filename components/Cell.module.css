@@ -1,0 +1,101 @@
+/* ============================================================ */
+/* 🔲 Cell.module.css - 개별 셀 스타일                          */
+/* ============================================================ */
+
+/* 셀 기본 스타일 */
+.cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  position: relative;
+  overflow: hidden;
+}
+
+/* 빈 셀 호버 효과 */
+.cell:not(.disabled):hover {
+  background: var(--color-surface-hover);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* 비활성 셀 (게임 종료 또는 이미 채워진 칸) */
+.disabled {
+  cursor: default;
+}
+
+/* O/X 마크가 들어올 때 애니메이션 */
+.mark {
+  animation: scaleIn 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  height: 70%;
+}
+
+/* O 마크: 시안 네온 */
+.cellO {
+  border-color: rgba(0, 212, 255, 0.3);
+  box-shadow: inset 0 0 15px rgba(0, 212, 255, 0.1);
+}
+
+/* X 마크: 마젠타 네온 */
+.cellX {
+  border-color: rgba(255, 0, 229, 0.3);
+  box-shadow: inset 0 0 15px rgba(255, 0, 229, 0.1);
+}
+
+/* SVG 스타일: O 원형 */
+.svgO circle {
+  stroke: var(--color-o);
+  fill: none;
+  stroke-width: 6;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px var(--color-o-glow));
+  /* 원 그리기 애니메이션 */
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: drawCircle 0.4s ease forwards;
+}
+
+/* SVG 스타일: X 선 */
+.svgX line {
+  stroke: var(--color-x);
+  stroke-width: 6;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px var(--color-x-glow));
+  /* 선 그리기 애니메이션 */
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawLine 0.3s ease forwards;
+}
+
+.svgX line:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+/* 승리 라인 셀: 반짝이는 효과 */
+.winning {
+  animation: winGlow 1s ease-in-out infinite;
+  border-color: var(--color-win) !important;
+  background: rgba(0, 255, 136, 0.08) !important;
+}
+
+/* 원 그리기 애니메이션 */
+@keyframes drawCircle {
+  to { stroke-dashoffset: 0; }
+}
+
+/* 선 그리기 애니메이션 */
+@keyframes drawLine {
+  to { stroke-dashoffset: 0; }
+}

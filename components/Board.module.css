@@ -1,0 +1,51 @@
+/* ============================================================ */
+/* 🎯 Board.module.css - 게임 보드 스타일                       */
+/* ============================================================ */
+
+/* 보드 컨테이너: CSS Grid로 정사각형 그리드 생성 */
+.board {
+  display: grid;
+  gap: 8px;
+  padding: var(--spacing-md);
+  animation: scaleIn 0.4s ease;
+  margin: 0 auto;
+}
+
+/* 3×3 보드: 최대 너비 제한 */
+.board3 {
+  max-width: 400px;
+  width: 100%;
+}
+
+/* 5×5 보드: 최대 너비 제한 */
+.board5 {
+  max-width: 450px;
+  width: 100%;
+}
+
+/* 15×15 보드(오목): 넓은 보드, 좁은 간격 */
+.board15 {
+  max-width: 620px;
+  width: 100%;
+  gap: 2px !important;
+  padding: var(--spacing-sm);
+}
+
+/* 반응형: 모바일에서 보드 크기 조절 */
+@media (max-width: 480px) {
+  .board {
+    gap: 5px;
+    padding: var(--spacing-sm);
+  }
+  .board3 {
+    max-width: 320px;
+  }
+  .board5 {
+    max-width: 340px;
+  }
+  .board15 {
+    max-width: 100%;
+    gap: 1px !important;
+    padding: var(--spacing-xs);
+  }
+}
