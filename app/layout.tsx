@@ -37,19 +37,27 @@ const outfit = Outfit({
  * - 브라우저 탭 제목과 검색 엔진 설명
  */
 export const metadata: Metadata = {
-  title: '🎮 O/X 틱택토 - Tic-Tac-Toe',
+  title: '🎮 O/X 틱택토 + 오목',
   description:
-    'AI와 대전하거나 친구와 함께 즐기는 O/X 틱택토 게임! 3×3, 5×5 보드를 지원합니다.',
+    'AI와 대전하거나 친구와 함께 즐기는 O/X 게임! 3×3 틱택토, 5×5 확장, 15×15 오목을 지원합니다.',
+  manifest: '/manifest.json',
+  openGraph: {
+    title: '🎮 O/X 틱택토 + 오목',
+    description: '3×3 틱택토, 5×5 확장, 15×15 오목 — AI 대전 & 1:1 대전',
+    type: 'website',
+  },
 };
 
 /**
  * 📱 뷰포트(Viewport) 설정
  * - 모바일 기기에서 적절한 크기로 표시되도록 설정
+ * - 더블탭/핀치 줌 방지로 게임 플레이 최적화
  */
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
+  userScalable: false,
   themeColor: '#0a0a1a',
 };
 

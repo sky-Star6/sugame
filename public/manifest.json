@@ -1,0 +1,18 @@
+{
+  "name": "O/X 틱택토 + 오목",
+  "short_name": "O/X 게임",
+  "description": "AI와 대전하거나 친구와 함께 즐기는 O/X 게임! 3×3 틱택토, 5×5 확장, 15×15 오목",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a1a",
+  "theme_color": "#0a0a1a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
